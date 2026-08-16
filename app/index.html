@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/assets/logo.png" />
+    <title>Ridepay — E-Rickshaw Rides, Parcels & School Transport</title>
+    <meta name="description" content="Ridepay is India's e-rickshaw-first mobility app — book auto & e-rickshaw rides, send parcels, and get safe PIN-verified school transport, all with live tracking and multilingual voice booking." />
+    <meta property="og:title" content="Ridepay — Har Safar, Aasaan Safar" />
+    <meta property="og:description" content="Book e-rickshaw rides, send parcels and get safe school transport — all in one app, built for India." />
+    <meta property="og:image" content="/assets/share-rickshaw.png" />
+    <script>
+      // Buffers the native Android app's auto-delivered FCM token if it
+      // arrives before the JS bundle loads — src/lib/nativeApp.ts replaces
+      // this stub and drains __earlyFcmToken as soon as it executes.
+      window.onFcmTokenReceived = function (token) {
+        window.__earlyFcmToken = token;
+      };
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

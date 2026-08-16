@@ -1,0 +1,422 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.625rem;
+
+    --saffron: #FF6B00;
+    --saffron-light: #FF8533;
+    --saffron-bg: #FFF5EB;
+    --green: #138808;
+    --green-light: #1AA814;
+    --green-bg: #E8F5E8;
+    --navy: #1E3A5F;
+    --navy-light: #2C5282;
+    --error: #DC2626;
+    --warning: #F59E0B;
+    --text-primary: #1A1A2E;
+    --text-secondary: #6B7280;
+    --text-muted: #9CA3AF;
+    --bg: #F8F9FA;
+    --card-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    --elevated-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    --float-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    --saffron: #FF6B00;
+    --saffron-light: #FF8533;
+    --saffron-bg: #2D1F15;
+    --green: #138808;
+    --green-light: #1AA814;
+    --green-bg: #1A2D1A;
+    --navy: #4A6A8F;
+    --navy-light: #5D7FA8;
+    --error: #DC2626;
+    --warning: #F59E0B;
+    --text-primary: #E5E7EB;
+    --text-secondary: #9CA3AF;
+    --text-muted: #6B7280;
+    --bg: #0F172A;
+    --card-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    --elevated-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    --float-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    overflow-x: hidden;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .gradient-tricolor {
+    background: linear-gradient(135deg, #FF6B00 0%, #FFFFFF 50%, #138808 100%);
+  }
+
+  .gradient-tricolor-animated {
+    background: linear-gradient(135deg, #FF6B00 0%, #FFFFFF 50%, #138808 100%);
+    background-size: 200% 200%;
+    animation: gradientFlow 8s ease infinite;
+  }
+
+  .tricolor-divider {
+    height: 3px;
+    background: linear-gradient(90deg, #FF6B00 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%);
+  }
+
+  /* Matches the rounded, bold wordmark style used in the Ridepay logo. */
+  .brand-font {
+    font-family: 'Baloo 2', 'Poppins', sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  .shadow-saffron {
+    box-shadow: 0 4px 16px rgba(255,107,0,0.25);
+  }
+
+  .shadow-green {
+    box-shadow: 0 4px 16px rgba(19,136,8,0.25);
+  }
+
+  .btn-saffron {
+    @apply bg-[#FF6B00] text-white font-semibold rounded-xl transition-all duration-200;
+    box-shadow: 0 4px 16px rgba(255,107,0,0.25);
+  }
+  .btn-saffron:hover {
+    @apply bg-[#FF8533];
+    transform: scale(0.98);
+  }
+
+  .btn-green {
+    @apply bg-[#138808] text-white font-semibold rounded-xl transition-all duration-200;
+    box-shadow: 0 4px 16px rgba(19,136,8,0.25);
+  }
+  .btn-green:hover {
+    @apply bg-[#1AA814];
+    transform: scale(0.98);
+  }
+
+  .card-flying {
+    @apply bg-white rounded-2xl;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .map-container {
+    @apply w-full h-full;
+  }
+}
+
+@layer utilities {
+  @keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(2); opacity: 0; }
+  }
+
+  @keyframes ripple {
+    0% { transform: scale(0.5); opacity: 0.6; }
+    100% { transform: scale(3); opacity: 0; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  @keyframes bounce-gentle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Continuous horizontal scroller for the marketing landing page's feature
+     ticker — the track is duplicated in markup so -50% is a seamless loop. */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 22s linear infinite;
+  }
+
+  /* Slow, subtle drift for the marketing hero's background glow blobs —
+     deliberately gentle (long duration, small travel) so it reads as
+     ambient depth rather than the busy shifting-gradient look. */
+  @keyframes blobDrift {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(3%, -4%) scale(1.06); }
+  }
+  .animate-blob {
+    animation: blobDrift 14s ease-in-out infinite;
+  }
+
+  @keyframes ringSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .animate-ring-spin {
+    animation: ringSpin 40s linear infinite;
+  }
+
+  /* Dash offset flows along a path — used for the parcel route line and the
+     hero's decorative road lines, so they read as motion, not just print. */
+  @keyframes dashFlow {
+    to { stroke-dashoffset: -40; }
+  }
+  .animate-dash-flow {
+    animation: dashFlow 1.6s linear infinite;
+  }
+
+  @keyframes revealUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0;
+  }
+  .reveal.in-view {
+    animation: revealUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .animate-fade-slide {
+    animation: fadeSlideIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /* BottomNav's dynamic Services slot (School/Corporate/RidePass/Services) —
+     the icon+label swap when membership status changes gets a pop-in instead
+     of an instant, jarring replace. */
+  @keyframes navMorph {
+    from { opacity: 0; transform: scale(0.5); }
+    60% { opacity: 1; transform: scale(1.15); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .animate-nav-morph {
+    animation: navMorph 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /* Driver onboarding wizard — each step slides in from the right as the
+     rider moves forward, matching the horizontal "next step" mental model
+     rather than the vertical sheet-opening motion the rest of the app uses. */
+  @keyframes onboardingStepIn {
+    from { opacity: 0; transform: translateX(28px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .animate-onboarding-step {
+    animation: onboardingStepIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .animate-pulse-ring {
+    animation: pulse-ring 2s ease-out infinite;
+  }
+
+  .animate-ripple {
+    animation: ripple 2s ease-out infinite;
+  }
+
+  .animate-float {
+    animation: float 2s ease-in-out infinite;
+  }
+
+  .animate-bounce-gentle {
+    animation: bounce-gentle 1s ease-in-out infinite;
+  }
+
+  .text-saffron { color: #FF6B00; }
+  .bg-saffron { background-color: #FF6B00; }
+  .bg-saffron-light { background-color: #FF8533; }
+  .bg-saffron-bg { background-color: #FFF5EB; }
+  .text-green-custom { color: #138808; }
+  .bg-green-custom { background-color: #138808; }
+  .bg-green-light { background-color: #1AA814; }
+  .bg-green-bg { background-color: #E8F5E8; }
+  .text-navy { color: #1E3A5F; }
+  .bg-navy { background-color: #1E3A5F; }
+  .bg-navy-light { background-color: #2C5282; }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+/* Google Places Autocomplete dropdown (.pac-container) — Google renders this
+   itself outside the React tree, appended to <body>, so it can only be
+   restyled globally here. Kept in sync with the app's saffron/navy theme and
+   the .dark class toggled on <html> by ThemeContext. The "powered by Google"
+   logo is left in place per Google's branding requirements — only colors,
+   spacing and radius are themed. */
+.pac-container {
+  font-family: 'Poppins', sans-serif;
+  margin-top: 8px;
+  padding: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+  background-color: #FFFFFF;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  /* Google appends this to <body> and sizes/positions it inline off the
+     input's own bounding rect, which is narrower than the search bar's
+     container (icon + Speak button eat into it) — override left/width so it
+     lands in exactly the same place as UserHome.tsx's own "recent places"
+     dropdown: inset 16px inside the bottom sheet's `max-w-lg mx-auto px-3`
+     card. `!important` is required since inline styles otherwise win. */
+  left: calc((100vw - min(100vw, 32rem)) / 2 + 28px) !important;
+  width: calc(min(100vw, 32rem) - 56px) !important;
+}
+.pac-container:empty {
+  display: none;
+}
+.pac-item {
+  border: none;
+  border-radius: 14px;
+  padding: 10px 12px;
+  font-size: 13px;
+  line-height: 1.3;
+  color: #6B7280;
+  cursor: pointer;
+}
+.pac-item:hover,
+.pac-item-selected {
+  background-color: #FFF5EB;
+}
+.pac-item-query {
+  font-size: 14px;
+  color: #1A1A2E;
+  font-weight: 600;
+}
+.pac-matched {
+  color: #FF6B00;
+}
+.pac-icon {
+  margin-top: 3px;
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(360deg) brightness(101%) contrast(101%);
+  opacity: 0.85;
+}
+.pac-logo:after {
+  margin: 6px 8px 2px;
+  opacity: 0.6;
+}
+
+.dark .pac-container {
+  background-color: #1E293B;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+.dark .pac-item {
+  color: #9CA3AF;
+}
+.dark .pac-item:hover,
+.dark .pac-item-selected {
+  background-color: #3D2914;
+}
+.dark .pac-item-query {
+  color: #E5E7EB;
+}
+.dark .pac-logo:after {
+  filter: invert(1);
+  opacity: 0.5;
+}
+
+/* Slick rotating glow ring for the floating "current location" pill on the
+   home map — a conic-gradient layer sits 2px outside the pill, masked down
+   to just that 2px rim (see the inline mask styles on the element). Animates
+   the gradient's OWN angle via a registered custom property, not a
+   transform:rotate() on the element itself — the pill is a wide, short
+   rounded rectangle, not a square, so rotating the whole element sweeps its
+   ends through a huge visible arc instead of the glow just chasing evenly
+   around the edge. */
+@property --pill-glow-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes pill-glow-spin {
+  to { --pill-glow-angle: 360deg; }
+}
+.animate-pill-glow {
+  animation: pill-glow-spin 3s linear infinite;
+}

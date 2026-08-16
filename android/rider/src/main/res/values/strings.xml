@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ridepay</string>
+    <!-- Android-restricted (package name + SHA-1) Maps key — separate from
+         the web app's referrer-restricted key. Empty until registered in
+         Google Cloud Console; the map screens simply won't render tiles
+         until this is filled in, same pattern as the backend's
+         GOOGLE_MAPS_SERVER_KEY guard. -->
+    <string name="google_maps_api_key" translatable="false"></string>
+</resources>

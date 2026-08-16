@@ -1,0 +1,16 @@
+package `in`.ridepay.app.ui.theme
+
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Shapes
+import androidx.compose.ui.unit.dp
+
+// Matches the web app's pervasive `rounded-xl` (cards, buttons, inputs,
+// bottom sheets) — the web app almost never uses a smaller radius for
+// primary surfaces, so this is applied broadly rather than per-component.
+val RidePayShapes = Shapes(
+    extraSmall = RoundedCornerShape(8.dp),
+    small = RoundedCornerShape(12.dp),
+    medium = RoundedCornerShape(16.dp),
+    large = RoundedCornerShape(16.dp),
+    extraLarge = RoundedCornerShape(24.dp),
+)
